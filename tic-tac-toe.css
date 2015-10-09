@@ -1,16 +1,25 @@
 * {
     text-align: center;
+    font-family: 'Sahitya', serif;
 }
+
 h1 {
     color: blue;
+    font-size: 60px;
+    z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 .box {
     display: inline-block;
     background-color: red;
-    border-radius: 5px;
-    width: 100px;
-    height: 100px;
+    border-radius: 10px;
+    width: 160px;
+    height: 160px;
+    z-index: 2;
+    position: relative;
+    z-index: 2;
 }
 
 .about-me {
@@ -19,4 +28,6 @@ h1 {
     background-color: white;
     border: 5px 5px 5px 5px;
     border-color: black;
+    z-index: 2;
+    position: relative;
 }
