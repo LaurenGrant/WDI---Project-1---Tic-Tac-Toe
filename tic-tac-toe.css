@@ -7,18 +7,16 @@ h1 {
 
 .box {
     display: inline-block;
-    background-color: black;
+    background-color: red;
     border-radius: 5px;
     width: 100px;
     height: 100px;
-    margin: 1em;
 }
 
-footer {
-    clear: both;
-    width: 75%
+.about-me {
     height: 100px;
-    background-color: green;
+    width: 100%;
+    background-color: white;
+    border: 5px 5px 5px 5px;
+    border-color: black;
 }
-
-
