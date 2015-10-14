@@ -10,11 +10,12 @@ $(document).ready(function() {
 });
 
 
-//variable representation of tic tac toe board cells
+
+//multidimensional array representation of tic tac toe board cells.
 var board = [
-  [null, null, null], //[0][0], [0][1], [0][2]
-  [null, null, null], //[0][0], [0][1], [0][2]
-  [null, null, null] //[0][0], [0][1], [0][2]
+  ['', '', ''], //[0][0], [0][1], [0][2]
+  ['', '', ''], //[0][0], [0][1], [0][2]
+  ['', '', ''] //[0][0], [0][1], [0][2]
 ];
 
 //winner! 3 in a row

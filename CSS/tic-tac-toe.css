@@ -1,10 +1,11 @@
 * {
     text-align: center;
     font-family: 'Sahitya', serif;
+    color: #FF6633;
 }
 
 body {
-    background-image: url(snow-ground.jpg);
+    background-image: url(../Assets/snow-ground.jpg);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -13,11 +14,13 @@ body {
 }
 
 h1 {
-    color: black;
     font-size: 60px;
     z-index: 2;
     position: relative;
-    z-index: 2;
+}
+
+.custom {
+   cursor: url(../Assets/shovelCursor.jpg), auto;
 }
 
 .box {
@@ -30,7 +33,6 @@ h1 {
     height: 160px;
     z-index: 2;
     position: relative;
-    z-index: 2;
 }
 
 .about-me {
