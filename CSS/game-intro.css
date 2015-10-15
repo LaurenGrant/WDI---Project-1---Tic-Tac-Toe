@@ -29,13 +29,13 @@
 }
 
 input {
-  color: #454343;
-  background: white;
+  color: white;
+  background-color: #66CCFF;
   font-size: 19px;
   font-weight: bolder;
-  border-radius: 50%;
+  border-radius: 40%;
   width: 140px;
-  height: 140px;
+  height: 100px;
   z-index: 2;
   margin-top: 20em;
   position: relative;

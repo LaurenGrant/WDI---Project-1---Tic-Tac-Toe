@@ -1,5 +1,7 @@
 'use strict';
 
+//create a var to save the token
+
 //multidimensional array representation of tic tac toe board cells.
 var board = [
   ['', '', ''], //[0][0], [0][1], [0][2]
@@ -34,13 +36,30 @@ $(document).ready(function() {
     var col = $this.data('col');//new var to = data attribute from html
     var row = $this.data('row');//new var to = data attribute from html
 
-  turn(col, row);
+    turn(col, row);
 
-  var winner = getWinner();
-  if (winner) {
-    $('.outcome').text(winner);
-  }
-  console.log(board);
+    var winner = getWinner();
+
+    tttapi.markCell($('#gameId').val(), {
+      game: {
+        cell: {
+          index: 3 * row + col,
+          value: currentPlayerToken
+        },
+        over: winner ? true : false
+      }
+    }, $('.token').val(), function(error, data) {
+      if (error) {
+        console.error(error);
+        $('#result').val('status: ' + error.status + ', error: ' +error.error);
+        return;
+      }
+      $('#result').val(JSON.stringify(data, null, 4));
+    });
+
+    if (winner) {
+      $('.outcome').text(winner);
+    }
   });
 });
   //evoke a function that asks if current player is 'x', change to player 'o'
@@ -54,15 +73,13 @@ var switchPlayer = function() {
 
 function getWinner() {
   if (winnerIs('x')) {
-    return 'Congratulations Player X, you won!!!';
+    return 'Congratulations Player X, you won - no more shoveling for you!!!';
   }
   if (winnerIs('o')) {
-    return 'Congratulations Player O, you won!!!';
+    return 'Congratulations Player O, you won - no more shoveling for you!!!';
   }
   if (ifTie === 9) {
-    return 'You both lose';// write so only if board is full, then return this. function should be a loop through board for nested arrays, if any cell is empty, return false, and the game is still on. default return is tie.
-
-    // check when move counter, put that in there,
+    return 'You both lose - shovel out your own cars';
   }
   return null;
 }
