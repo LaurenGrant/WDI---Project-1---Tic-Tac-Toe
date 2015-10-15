@@ -10,11 +10,24 @@ var board = [
 // assign current player as player 'x' at start of game
 var currentPlayerToken = 'x';
 
+var ifTie = 0;
+
+var turn = function(col, row){
+  if (board[col][row] === '') {
+    board[col][row] = currentPlayerToken;
+    switchPlayer();
+    ++ifTie;
+  }
+  else { // change console.log so it shows up in h2
+    console.log("choose an empty cell");
+  }
+  return board;
+};
 //jqery for clicking a box on the board
 //runs when the DOM is ready
 $(document).ready(function() {
 
-  $('.box').on('click', function(event) {//runs when box is clicked. will not allow box to be clicked more then once.
+  $('.box').one('click', function(event) {//runs when box is clicked. will not allow box to be clicked more then once.
     var $this = $(this);//changes text inside the div '.box'
     $this.html(currentPlayerToken);//inputs text 'o' or 'x' according to what the current player is
 
@@ -22,13 +35,12 @@ $(document).ready(function() {
     var row = $this.data('row');//new var to = data attribute from html
 
   turn(col, row);
+
   var winner = getWinner();
   if (winner) {
-    alert(winner); // change this to a div to hold winner on the page
+    $('.outcome').text(winner);
   }
   console.log(board);
-  //   board[this.dataset.row][this.dataset.col] = //someValue;
-  //   switchPlayer();
   });
 });
   //evoke a function that asks if current player is 'x', change to player 'o'
@@ -40,17 +52,6 @@ var switchPlayer = function() {
   }
 }
 
-var turn = function(col, row){
-  if (board[col][row] === '') {
-    board[col][row] = currentPlayerToken;
-    switchPlayer();
-  }
-  else {
-    console.log("choose an empty cell");
-  }
-  return board;
-};
-
 function getWinner() {
   if (winnerIs('x')) {
     return 'Congratulations Player X, you won!!!';
@@ -58,8 +59,10 @@ function getWinner() {
   if (winnerIs('o')) {
     return 'Congratulations Player O, you won!!!';
   }
-  else {//change to if
-  //   return 'You both lose';// write so only if board is full, then return this. function should be a loop through board for nested arrays, if any cell is empty, return false, and the game is still on. default return is tie.
+  if (ifTie === 9) {
+    return 'You both lose';// write so only if board is full, then return this. function should be a loop through board for nested arrays, if any cell is empty, return false, and the game is still on. default return is tie.
+
+    // check when move counter, put that in there,
   }
   return null;
 }
