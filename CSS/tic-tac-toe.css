@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url('../assets/images/snow-ground.jpg');
+  background-image: url('../Assets/images/snow-ground.jpg');
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -24,7 +24,7 @@ h1 {
 }
 
 .custom {
-  cursor: url('../assets/images/shovelCursorImage.png'), auto;
+  cursor: url('../Assets/images/shovelCursorImage.png'), auto;
 }
 
 .game-records {
