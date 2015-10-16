@@ -1,7 +1,5 @@
 'use strict';
 
-//create a var to save the token
-
 //multidimensional array representation of tic tac toe board cells.
 var board = [
   ['', '', ''], //[0][0], [0][1], [0][2]

@@ -51,33 +51,34 @@ var tttapi = {
         Authorization: 'Token token=' + token
       },
       contentType: 'application/json; charset=utf-8',//need to add contentType and data: bc we are sending out data
-      data: JSON.stringify({}), //the function inside is what will become stringify
-      dataType: 'json'
+      data: JSON.stringify({}),//the function inside is what will
+      dataType: 'json',
     }, callback);
   },
 
   showGame: function (id, token, callback) {
-   this.ajax({
-       method: 'GET',
-       url: this.ttt + '/games/' + id,
-       headers: {
-         Authorization: 'Token token=' + token
-       },
-       dataType: 'json'
-     }, callback);
-   },
+    this.ajax({
+      method: 'GET',
+      url: this.ttt + '/games/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      dataType: 'json'
+    }, callback);
+  },
 
-  // joinGame: function (id, token, callback) {
-  //   this.ajax({
-  //     method: 'GET'.
-  //     url: this.ttt + '/games/' + id,
-  //     headers: {
-  //       Authorization: 'Token token=' + token
-  //     },
-  //     contentType: 'application/json; charset=utf-8',
-  //     dataType: 'json'
-  //   }, callback);
-  // },
+  joinGame: function (id, token, callback) {
+    this.ajax({
+      method: 'PATCH',
+      url: this.ttt + '/games/' + id,
+      headers: {
+        Authorization: 'Token token=' + token
+      },
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify({}),
+      dataType: 'json'
+    }, callback);
+  },
 
   markCell: function (id, data, token, callback) {
     this.ajax({
@@ -101,7 +102,6 @@ var tttapi = {
     return this.gameWatcher;
   }
 };
-
 
 //$(document).ready(...
 $(function() {
