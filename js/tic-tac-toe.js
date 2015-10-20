@@ -10,16 +10,16 @@ var board = [
 // assign current player as player 'x' at start of game
 var currentPlayerToken = 'x';
 
-var ifTie = 0;
+var numTurn = 0; //this variable will be used for my turn function
 
 var turn = function(col, row){
   if (board[col][row] === '') {
-    board[col][row] = currentPlayerToken;
-    switchPlayer();
-    ++ifTie;
+    board[col][row] = currentPlayerToken; //either an x or an o will become the value of the board col,row
+    switchPlayer(); //once that happens, envoke the switch player function
+    ++numTurn; // add an integer to the numTurn variable every time a token is placed on the board
   }
   else { // change console.log so it shows up in h2
-    console.log("choose an empty cell");
+    console.log("choose an empty cell"); // if a token has been placed on a board cell that is not empty, this response will be given
   }
   return board;
 };
@@ -38,22 +38,25 @@ $(document).ready(function() {
 
     var winner = getWinner();
 
-    tttapi.markCell($('#gameId').val(), {
-      game: {
-        cell: {
-          index: 3 * row + col,
-          value: currentPlayerToken
-        },
-        over: winner ? true : false
-      }
-    }, $('.token').val(), function(error, data) {
-      if (error) {
-        console.error(error);
-        $('#result').val('status: ' + error.status + ', error: ' +error.error);
-        return;
-      }
-      $('#result').val(JSON.stringify(data, null, 4));
-    });
+    tttapi.markCell($('#gameId').val(),
+      {
+        game: {
+          cell: {
+            index: 3 * row + col, //turns board row, col into an integer so it works with the API
+            value: currentPlayerToken
+          },
+          over: winner ? true : false
+        }
+      },
+      $('.token').val(),
+      function(error, data) {
+        if (error) {
+          console.error(error);
+          $('#result').val('status: ' + error.status + ', error: ' + error.error);
+          return;
+        }
+        $('#result').val(JSON.stringify(data, null, 4));
+      });
 
     if (winner) {
       $('.outcome').text(winner);
@@ -76,7 +79,7 @@ function getWinner() {
   if (winnerIs('o')) {
     return 'Congratulations Player O, you won - no more shoveling for you!!!';
   }
-  if (ifTie === 9) {
+  if (numTurn === 9) {
     return 'You both lose - shovel out your own cars';
   }
   return null;
@@ -111,8 +114,3 @@ var winsDiagonal = function (player) { //feeds winsDiagonal into winnerIs funcit
 
   return diag1 || diag2;
 };
-
-
-
-
-
