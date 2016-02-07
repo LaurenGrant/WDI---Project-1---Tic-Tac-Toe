@@ -5,7 +5,7 @@
 }
 
 #background-img {
-  background-image: url('../assets/images/snow-ground.jpg');
+  background-image: url('../Assets/images/snow-ground.jpg');
   position: fixed;
   top: 0;
   left: 0;
@@ -28,7 +28,7 @@ h1 {
 }
 
 .custom {
-  cursor: url('../assets/images/shovelCursorImage.png'), auto;
+  cursor: url('../Assets/images/shovelCursorImage.png'), auto;
 }
 
 .board {
