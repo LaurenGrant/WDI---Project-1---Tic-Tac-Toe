@@ -114,3 +114,22 @@ var winsDiagonal = function (player) { //feeds winsDiagonal into winnerIs funcit
 
   return diag1 || diag2;
 };
+
+
+$(document).ready(function(){
+  $('#login-trigger').click(function(){
+    $(this).next('#login-content').slideToggle();
+    $(this).toggleClass('active');
+
+    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+      else $(this).find('span').html('&#x25BC;')
+    });
+
+  $('#register-trigger').click(function(){
+    $(this).next('#register-content').slideToggle();
+    $(this).toggleClass('active');
+
+    if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+      else $(this).find('span').html('&#x25BC;')
+    })
+});

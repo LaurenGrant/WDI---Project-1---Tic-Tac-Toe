@@ -4,12 +4,8 @@
   font-weight: bold;
 }
 
-/*body {
-
-}*/
-
 #background-img {
-  background-image: url('../assets/images/snow-ground.jpg');
+  background-image: url('../Assets/images/snow-ground.jpg');
   position: fixed;
   top: 0;
   left: 0;
@@ -35,21 +31,11 @@ h1 {
   cursor: url('../Assets/images/shovelCursorImage.png'), auto;
 }
 
-.game-records {
-  height: 50%;
-  width: 300px;
-  border-color: black;
-  border-style: solid;
-  border-width: 3px;
-  display: inline-block;
-  margin-left: 5%;
-}
-
 .board {
   clear: both;
-  margin-right: 20%;
-  z-index: 2;
-  float: right;
+  width: 50%;
+  margin: 0 auto;
+  padding-left: 10%;
 }
 
 .col-1 {
@@ -85,4 +71,25 @@ h1 {
   width: 100%;
   z-index: 2;
   position: relative;
+}
+
+
+
+/*--------------------*/
+
+#inputs input {
+  background: #f1f1f1;
+  padding: 6px 5px;
+  margin: 0 0 5px 0;
+  width: 238px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-shadow: 0 1px 1px #ccc inset;
+}
+
+#inputs input:focus {
+  background-color: #fff;
+  border-color: #e8c291;
+  outline: none;
+  box-shadow: 0 0 0 1px #e8c291 inset;
 }
